@@ -11,8 +11,6 @@ import cn.chinatelecom.kubernetes.rest.Tools;
 import cn.chinatelecom.kubernetes.rest.bean.ApiResponseBean;
 
 import com.alibaba.fastjson.JSONObject;
-import io.fabric8.kubernetes.api.model.apps.Deployment;
-import io.fabric8.kubernetes.api.model.apps.DeploymentBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -6,6 +6,24 @@
 
 #### 二. K8s-service Restful接口格式 #### 
 
+##### 0. 测试服务接口连通性
+
+请求地址:
+
+`GET  /v1/k8sservice/test`
+
+返回示例:
+
+```json
+{
+"code": 200,
+"message": "[INFO] oops, you got it.",
+"responseTime": "2022-01-11 15:14:12"
+}
+```
+
+
+
 ##### 1.  根据namespace,label查询启动的pod列表 #####
 
 请求地址：
@@ -87,7 +105,7 @@
         "nameSpace": "vss-meter-workspace",
         "replicas": 3
     },
-    "msgId": "1002",
+    "msgId": "1641876953",
     "responseTime": "2022-01-11 12:46:27"
 }
 ```
@@ -129,7 +147,7 @@
 
    请求示例:
 
-   `当k8s-service服务查询异常时时任意请求接口`
+   `当k8s-service服务查询异常时任意请求接口`
 
    返回示例:
 
