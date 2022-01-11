@@ -1,0 +1,260 @@
+[UerGroupManagerServiceLog]  2022-01-11 09:53:56  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 09:56:26  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:05:06  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 10:05:06  INFO log:170 : Logging initialized @926ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 10:05:06  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 10:05:06  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@3c0ecd4b{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 10:05:08  INFO AbstractConnector:331 : Started ServerConnector@340f438e{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 10:05:08  INFO Server:415 : Started @2930ms
+[UerGroupManagerServiceLog]  2022-01-11 10:05:21  INFO K8sRestService:44 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=app=mysql)@15af8ca5
+[UerGroupManagerServiceLog]  2022-01-11 10:05:21  INFO K8sRestService:45 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:05:21  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:05:24  INFO K8sRestService:68 : [getPod] Response Info: {"code":200,"message":{"clusterIP":"10.105.227.117","clusterPort":3306,"podList":[{"podIP":"10.244.0.33","podName":"mysql"},{"podIP":"10.244.1.25","podName":"mysql2"}]},"msgId":"1001","responseTime":"2022-01-11 10:05:24"}
+[UerGroupManagerServiceLog]  2022-01-11 10:05:32  INFO K8sRestService:44 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=mysql)@15af8ca5
+[UerGroupManagerServiceLog]  2022-01-11 10:05:32  INFO K8sRestService:45 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:05:32  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:05:32 ERROR K8sRestService:65 : [ERROR] K8sRestService error, plase contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:05:32 ERROR K8sRestService:66 : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[UerGroupManagerServiceLog]  2022-01-11 10:05:32  INFO K8sRestService:68 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, plase contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:05:32"}
+[UerGroupManagerServiceLog]  2022-01-11 10:10:51  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 10:10:51  INFO log:170 : Logging initialized @867ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 10:10:51  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 10:10:51  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@3c0ecd4b{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 10:10:53  INFO AbstractConnector:331 : Started ServerConnector@340f438e{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 10:10:53  INFO Server:415 : Started @3204ms
+[UerGroupManagerServiceLog]  2022-01-11 10:11:39  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 10:11:39  INFO log:170 : Logging initialized @904ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 10:11:39  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 10:11:39  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@3c0ecd4b{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 10:11:41  INFO AbstractConnector:331 : Started ServerConnector@340f438e{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 10:11:41  INFO Server:415 : Started @2963ms
+[UerGroupManagerServiceLog]  2022-01-11 10:11:48  INFO K8sRestService:44 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=mysql)@3af58781
+[UerGroupManagerServiceLog]  2022-01-11 10:11:48  INFO K8sRestService:45 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:11:48  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:11:51 ERROR K8sRestService:65 : [ERROR] K8sRestService error, plase contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:11:51 ERROR K8sRestService:66 : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[UerGroupManagerServiceLog]  2022-01-11 10:11:51  INFO K8sRestService:68 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, plase contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:11:51"}
+[UerGroupManagerServiceLog]  2022-01-11 10:16:33  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 10:16:33  INFO log:170 : Logging initialized @940ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 10:16:33  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 10:16:33  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@3c0ecd4b{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 10:16:35  INFO AbstractConnector:331 : Started ServerConnector@340f438e{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 10:16:35  INFO Server:415 : Started @3378ms
+[UerGroupManagerServiceLog]  2022-01-11 10:16:39  INFO K8sRestService:44 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=mysql)@15af8ca5
+[UerGroupManagerServiceLog]  2022-01-11 10:16:39  INFO K8sRestService:45 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:16:39  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:16:41 ERROR K8sRestService:65 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:16:41 ERROR K8sRestService:66 : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[UerGroupManagerServiceLog]  2022-01-11 10:16:41  INFO K8sRestService:68 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:16:41"}
+[UerGroupManagerServiceLog]  2022-01-11 10:29:19  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:31:02  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:32:30  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:53:31  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 10:53:31  INFO log:170 : Logging initialized @868ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 10:53:31  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 10:53:31  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@3c0ecd4b{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 10:53:33  INFO AbstractConnector:331 : Started ServerConnector@340f438e{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 10:53:33  INFO Server:415 : Started @3016ms
+[UerGroupManagerServiceLog]  2022-01-11 10:53:56  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=mysql)@37e24ccf
+[UerGroupManagerServiceLog]  2022-01-11 10:53:56  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:53:56  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:53:59 ERROR K8sRestService:76 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:53:59 ERROR K8sRestService:77 : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[UerGroupManagerServiceLog]  2022-01-11 10:53:59  INFO K8sRestService:79 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:53:59"}
+[UerGroupManagerServiceLog]  2022-01-11 10:54:07  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace)@37e24ccf
+[UerGroupManagerServiceLog]  2022-01-11 10:54:07  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:54:07  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:54:07 ERROR K8sRestService:76 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:54:07 ERROR K8sRestService:77 : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[UerGroupManagerServiceLog]  2022-01-11 10:54:07  INFO K8sRestService:79 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:54:07"}
+[UerGroupManagerServiceLog]  2022-01-11 10:54:59  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001)@5bf11364
+[UerGroupManagerServiceLog]  2022-01-11 10:54:59  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:54:59  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:54:59 ERROR K8sRestService:76 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:54:59 ERROR K8sRestService:77 : io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET at: https://172.24.2.216:6443/api/v1/pods?labelSelector=null. Message: pods is forbidden: User "system:serviceaccount:vss-meter-workspace:default" cannot list resource "pods" in API group "" at the cluster scope. Received status: Status(apiVersion=v1, code=403, details=StatusDetails(causes=[], group=null, kind=pods, name=null, retryAfterSeconds=null, uid=null, additionalProperties={}), kind=Status, message=pods is forbidden: User "system:serviceaccount:vss-meter-workspace:default" cannot list resource "pods" in API group "" at the cluster scope, metadata=ListMeta(_continue=null, remainingItemCount=null, resourceVersion=null, selfLink=null, additionalProperties={}), reason=Forbidden, status=Failure, additionalProperties={}).
+[UerGroupManagerServiceLog]  2022-01-11 10:54:59  INFO K8sRestService:79 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:54:59"}
+[UerGroupManagerServiceLog]  2022-01-11 10:55:59  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 10:55:59  INFO log:170 : Logging initialized @882ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 10:55:59  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 10:55:59  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@3c0ecd4b{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 10:56:01  INFO AbstractConnector:331 : Started ServerConnector@340f438e{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 10:56:01  INFO Server:415 : Started @3078ms
+[UerGroupManagerServiceLog]  2022-01-11 10:56:18  INFO K8sRestService:54 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001)@4c9400cf
+[UerGroupManagerServiceLog]  2022-01-11 10:56:18  INFO K8sRestService:55 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 10:56:18  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 10:56:20 ERROR K8sRestService:75 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 10:56:20 ERROR K8sRestService:76 : io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET at: https://172.24.2.216:6443/api/v1/pods?labelSelector=null. Message: pods is forbidden: User "system:serviceaccount:vss-meter-workspace:default" cannot list resource "pods" in API group "" at the cluster scope. Received status: Status(apiVersion=v1, code=403, details=StatusDetails(causes=[], group=null, kind=pods, name=null, retryAfterSeconds=null, uid=null, additionalProperties={}), kind=Status, message=pods is forbidden: User "system:serviceaccount:vss-meter-workspace:default" cannot list resource "pods" in API group "" at the cluster scope, metadata=ListMeta(_continue=null, remainingItemCount=null, resourceVersion=null, selfLink=null, additionalProperties={}), reason=Forbidden, status=Failure, additionalProperties={}).
+[UerGroupManagerServiceLog]  2022-01-11 10:56:20  INFO K8sRestService:78 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1001","responseTime":"2022-01-11 10:56:20"}
+[UerGroupManagerServiceLog]  2022-01-11 11:00:18  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 11:00:18  INFO log:170 : Logging initialized @963ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 11:00:18  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 11:00:18  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@2f686d1f{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 11:00:20  INFO AbstractConnector:331 : Started ServerConnector@17f6480{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 11:00:20  INFO Server:415 : Started @3006ms
+[UerGroupManagerServiceLog]  2022-01-11 11:00:24  INFO Version:27 : HV000001: Hibernate Validator 5.1.3.Final
+[UerGroupManagerServiceLog]  2022-01-11 11:21:49  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 11:21:49  INFO log:170 : Logging initialized @1183ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 11:21:49  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 11:21:50  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@2f686d1f{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 11:21:51  INFO AbstractConnector:331 : Started ServerConnector@17f6480{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 11:21:51  INFO Server:415 : Started @3509ms
+[UerGroupManagerServiceLog]  2022-01-11 11:23:29  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 11:23:29  INFO log:170 : Logging initialized @1052ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 11:23:29  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 11:23:29  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@2f686d1f{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 11:23:31  INFO AbstractConnector:331 : Started ServerConnector@17f6480{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 11:23:31  INFO Server:415 : Started @3151ms
+[UerGroupManagerServiceLog]  2022-01-11 11:25:04  INFO Version:27 : HV000001: Hibernate Validator 5.1.3.Final
+[UerGroupManagerServiceLog]  2022-01-11 11:25:43  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=app=mysql)@43b965cb
+[UerGroupManagerServiceLog]  2022-01-11 11:25:43  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 11:25:43  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 11:25:45  INFO K8sRestService:79 : [getPod] Response Info: {"code":200,"message":{"clusterIP":"10.105.227.117","clusterPort":3306,"podList":[{"podIP":"10.244.0.33","podName":"mysql"},{"podIP":"10.244.1.25","podName":"mysql2"}]},"msgId":"1001","responseTime":"2022-01-11 11:25:45"}
+[UerGroupManagerServiceLog]  2022-01-11 11:25:54  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace)@43b965cb
+[UerGroupManagerServiceLog]  2022-01-11 11:25:54  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 11:27:09  WARN HttpChannel:689 : /v1/k8sservice/updatePodReplicas
+javax.servlet.ServletException: java.lang.IllegalStateException: The @FormParam is utilized when the content type of the request entity is not application/x-www-form-urlencoded
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:489)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1434)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: The @FormParam is utilized when the content type of the request entity is not application/x-www-form-urlencoded
+	at org.glassfish.jersey.server.internal.inject.FormParamValueFactoryProvider$FormParamValueFactory.ensureValidRequest(FormParamValueFactoryProvider.java:183)
+	at org.glassfish.jersey.server.internal.inject.FormParamValueFactoryProvider$FormParamValueFactory.getForm(FormParamValueFactoryProvider.java:167)
+	at org.glassfish.jersey.server.internal.inject.FormParamValueFactoryProvider$FormParamValueFactory.provide(FormParamValueFactoryProvider.java:118)
+	at org.glassfish.jersey.server.spi.internal.ParamValueFactoryWithSource.provide(ParamValueFactoryWithSource.java:71)
+	at org.glassfish.jersey.server.spi.internal.ParameterValueHelper.getParameterValues(ParameterValueHelper.java:90)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$AbstractMethodParamInvoker.getParamValues(JavaResourceMethodDispatcherProvider.java:127)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:205)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+	... 25 more
+[UerGroupManagerServiceLog]  2022-01-11 11:27:09  WARN HttpChannelState:787 : unhandled due to prior sendError
+javax.servlet.ServletException: java.lang.IllegalStateException: The @FormParam is utilized when the content type of the request entity is not application/x-www-form-urlencoded
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:489)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1434)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: The @FormParam is utilized when the content type of the request entity is not application/x-www-form-urlencoded
+	at org.glassfish.jersey.server.internal.inject.FormParamValueFactoryProvider$FormParamValueFactory.ensureValidRequest(FormParamValueFactoryProvider.java:183)
+	at org.glassfish.jersey.server.internal.inject.FormParamValueFactoryProvider$FormParamValueFactory.getForm(FormParamValueFactoryProvider.java:167)
+	at org.glassfish.jersey.server.internal.inject.FormParamValueFactoryProvider$FormParamValueFactory.provide(FormParamValueFactoryProvider.java:118)
+	at org.glassfish.jersey.server.spi.internal.ParamValueFactoryWithSource.provide(ParamValueFactoryWithSource.java:71)
+	at org.glassfish.jersey.server.spi.internal.ParameterValueHelper.getParameterValues(ParameterValueHelper.java:90)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$AbstractMethodParamInvoker.getParamValues(JavaResourceMethodDispatcherProvider.java:127)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:205)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102)
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+	... 25 more
+[UerGroupManagerServiceLog]  2022-01-11 11:30:54  INFO K8sRestService:95 : [updatePodReplicas] Request Info: Request(POST //172.24.2.58:8080/v1/k8sservice/updatePodReplicas)@70a9015f
+[UerGroupManagerServiceLog]  2022-01-11 11:30:54  INFO K8sRestService:96 : [updatePodReplicas] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 11:30:54  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 11:30:54 ERROR K8sRestService:116 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 11:30:54 ERROR K8sRestService:117 : io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET at: https://172.24.2.216:6443/apis/apps/v1/namespaces/vss-meter-workspace/deployments/app=mysql. Message: Not Found.
+[UerGroupManagerServiceLog]  2022-01-11 11:30:54  INFO K8sRestService:119 : [updatePodReplicas] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1002","responseTime":"2022-01-11 11:30:54"}
+[UerGroupManagerServiceLog]  2022-01-11 11:32:18  INFO K8sRestService:95 : [updatePodReplicas] Request Info: Request(POST //172.24.2.58:8080/v1/k8sservice/updatePodReplicas)@1251bd6b
+[UerGroupManagerServiceLog]  2022-01-11 11:32:18  INFO K8sRestService:96 : [updatePodReplicas] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 11:32:18  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 11:32:19  INFO K8sRestService:119 : [updatePodReplicas] Response Info: {"code":200,"message":"replicas: 4","msgId":"1002","responseTime":"2022-01-11 11:32:19"}
+[UerGroupManagerServiceLog]  2022-01-11 12:46:04  INFO StartService:28 : 使用以下配置项启动: port:8080, k8sMasterUrl:https://172.24.2.216:6443, k8sToken:eyJhbGciOiJSUzI1NiIsImtpZCI6Im1QY3lNRk05V2RiakVpZHJBWnNPeGZHd0NHbDl0VnZ1NEdONENiMkExUkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ2c3MtbWV0ZXItd29ya3NwYWNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tOWJmcTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQwY2QxZDU3LWJlM2QtNDkyMC1iMjc3LWFkZjUzMzQwZDliOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2c3MtbWV0ZXItd29ya3NwYWNlOmRlZmF1bHQifQ.Mc1LL0xgDwecAl-LsrUcVQj8jhrkvcfdTtJQpbIgvKqtI6GetpUNetHRze18vvj688ZJSiv7a5oXO4t_qZHKjVgnCoZMvP_kU3UL1ERcfV0TrPSqw6_AllAJcIb401-mJZiEbtLN99wOKRqWkBlRxxDKir2Z6N2nmx5L24KrXkTdtXP5V5Ekq_VE9zPeySyHfgNwOgH8qdpuD73DLvQpa-LD2XHqtEhHap9IKubB1ILKZ12wk3FgRkRQbkyW_uSHLqLlJmwpDnJA_yW0bJiro06XVN9xvNdTou-2n9hRRrbiMwBhkV4XTYNcnA3Z6Bb2E9UFbf0paVtn1K-D_Vb0Rw.
+[UerGroupManagerServiceLog]  2022-01-11 12:46:04  INFO log:170 : Logging initialized @896ms to org.eclipse.jetty.util.log.Slf4jLog
+[UerGroupManagerServiceLog]  2022-01-11 12:46:05  INFO Server:375 : jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+[UerGroupManagerServiceLog]  2022-01-11 12:46:05  INFO ContextHandler:915 : Started o.e.j.s.ServletContextHandler@2f686d1f{/,null,AVAILABLE}
+[UerGroupManagerServiceLog]  2022-01-11 12:46:07  INFO AbstractConnector:331 : Started ServerConnector@17f6480{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[UerGroupManagerServiceLog]  2022-01-11 12:46:07  INFO Server:415 : Started @3047ms
+[UerGroupManagerServiceLog]  2022-01-11 12:46:24  INFO Version:27 : HV000001: Hibernate Validator 5.1.3.Final
+[UerGroupManagerServiceLog]  2022-01-11 12:46:24  INFO K8sRestService:95 : [updatePodReplicas] Request Info: Request(POST //172.24.2.58:8080/v1/k8sservice/updatePodReplicas)@7aa4faaf
+[UerGroupManagerServiceLog]  2022-01-11 12:46:24  INFO K8sRestService:96 : [updatePodReplicas] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 12:46:24  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 12:46:27  INFO K8sRestService:119 : [updatePodReplicas] Response Info: {"code":200,"message":{"deploymentName":"mariadb","nameSpace":"vss-meter-workspace","replicas":3},"msgId":"1002","responseTime":"2022-01-11 12:46:27"}
+[UerGroupManagerServiceLog]  2022-01-11 12:55:16  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1001&namespace=vss-meter-workspace&deploymentname=app=mysql)@16467587
+[UerGroupManagerServiceLog]  2022-01-11 12:55:16  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 12:55:16  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 12:55:17  INFO K8sRestService:79 : [getPod] Response Info: {"code":200,"message":{"clusterIP":"10.105.227.117","clusterPort":3306,"podList":[{"podIP":"10.244.0.33","podName":"mysql"},{"podIP":"10.244.1.25","podName":"mysql2"}]},"msgId":"1001","responseTime":"2022-01-11 12:55:17"}
+[UerGroupManagerServiceLog]  2022-01-11 12:56:04  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1641876953&namespace=vss-meter-workspace&deploymentname=app=mysql)@728b7f99
+[UerGroupManagerServiceLog]  2022-01-11 12:56:04  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 12:56:04  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 12:56:04  INFO K8sRestService:79 : [getPod] Response Info: {"code":200,"message":{"clusterIP":"10.105.227.117","clusterPort":3306,"podList":[{"podIP":"10.244.0.33","podName":"mysql"},{"podIP":"10.244.1.25","podName":"mysql2"}]},"msgId":"1641876953","responseTime":"2022-01-11 12:56:04"}
+[UerGroupManagerServiceLog]  2022-01-11 13:00:28  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1641876953&namespace=vss-meter-workspace)@1ea5512b
+[UerGroupManagerServiceLog]  2022-01-11 13:00:28  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 13:01:29  INFO K8sRestService:55 : [getPod] Request Info: Request(GET //172.24.2.58:8080/v1/k8sservice/getPod?msgId=1641876953&namespace=vss-meter-workspace&deploymentname=mysql)@39c01a62
+[UerGroupManagerServiceLog]  2022-01-11 13:01:29  INFO K8sRestService:56 : [getPod] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 13:01:29  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 13:01:29 ERROR K8sRestService:76 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 13:01:29 ERROR K8sRestService:77 : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[UerGroupManagerServiceLog]  2022-01-11 13:01:29  INFO K8sRestService:79 : [getPod] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1641876953","responseTime":"2022-01-11 13:01:29"}
+[UerGroupManagerServiceLog]  2022-01-11 13:44:28  INFO K8sRestService:95 : [updatePodReplicas] Request Info: Request(POST //172.24.2.58:8080/v1/k8sservice/updatePodReplicas)@16aa621c
+[UerGroupManagerServiceLog]  2022-01-11 13:44:28  INFO K8sRestService:96 : [updatePodReplicas] Request Addr: 172.24.2.58
+[UerGroupManagerServiceLog]  2022-01-11 13:44:28  WARN Config:498 : Error reading service account token from: [/var/run/secrets/kubernetes.io/serviceaccount/token]. Ignoring.
+[UerGroupManagerServiceLog]  2022-01-11 13:44:28 ERROR K8sRestService:116 : [ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. 
+[UerGroupManagerServiceLog]  2022-01-11 13:44:28 ERROR K8sRestService:117 : io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET at: https://172.24.2.216:6443/apis/apps/v1/namespaces/vss-meter-workspace/deployments/mariadb. Message: Not Found.
+[UerGroupManagerServiceLog]  2022-01-11 13:44:28  INFO K8sRestService:119 : [updatePodReplicas] Response Info: {"code":500,"message":"[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ","msgId":"1002","responseTime":"2022-01-11 13:44:28"}
+[UerGroupManagerServiceLog]  2022-01-11 13:44:42  INFO K8sRestService:95 : [updatePodReplicas] Request Info: Request(POST //172.24.2.58:8080/v1/k8sservice/updatePodReplicas)@16aa621c
+[UerGroupManagerServiceLog]  2022-01-11 13:44:42  INFO K8sRestService:96 : [updatePodReplicas] Request Addr: 172.24.2.58
