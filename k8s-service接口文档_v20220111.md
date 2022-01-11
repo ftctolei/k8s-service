@@ -95,6 +95,16 @@
 
 `POST  /v1/k8sservice/updatePodReplicas`
 
+```shell
+# x-www-form-urlencoded
+nameSpace:vss-meter-workspace
+deploymentName:mariadb
+replicas:3
+msgId:1641876953
+```
+
+
+
 返回示例:
 
 ```json
