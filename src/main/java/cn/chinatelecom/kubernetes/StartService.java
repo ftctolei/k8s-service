@@ -1,5 +1,6 @@
 package cn.chinatelecom.kubernetes;
 
+import cn.chinatelecom.kubernetes.rest.Constant;
 import cn.chinatelecom.kubernetes.rest.JettyServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

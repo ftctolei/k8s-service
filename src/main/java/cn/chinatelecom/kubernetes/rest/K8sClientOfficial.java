@@ -1,6 +1,5 @@
 package cn.chinatelecom.kubernetes.rest;
 
-import cn.chinatelecom.kubernetes.Constant;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.Config;

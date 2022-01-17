@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes;
+package cn.chinatelecom.kubernetes.rest;
 
 public class Constant {
     public static String REST_API_SERVER_PORT = "rest.api.server.port";

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static cn.chinatelecom.kubernetes.Constant.REST_OP_CREATE_DEPLOYMENT;
+import static cn.chinatelecom.kubernetes.rest.Constant.REST_OP_CREATE_DEPLOYMENT;
 
 
 public class RequestHandle {
