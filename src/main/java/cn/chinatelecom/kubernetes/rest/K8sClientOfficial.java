@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  */
 public class K8sClientOfficial {
     private static final Logger log = LoggerFactory.getLogger(K8sClientOfficial.class);
-    private static ResourceBundle resource = ResourceBundle.getBundle("config");
+    private static final ResourceBundle resource = ResourceBundle.getBundle("config");
 
     public static ApiClient connectFromToken() {
         String k8sMasterUrl = resource.getString(Constant.K8S_MASTER_URL);

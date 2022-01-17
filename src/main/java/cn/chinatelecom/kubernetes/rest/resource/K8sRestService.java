@@ -1,20 +1,25 @@
 package cn.chinatelecom.kubernetes.rest.resource;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-
 import cn.chinatelecom.kubernetes.rest.RequestHandle;
 import cn.chinatelecom.kubernetes.rest.Tools;
 import cn.chinatelecom.kubernetes.rest.bean.ApiResponseBean;
-
 import com.alibaba.fastjson.JSONObject;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -24,7 +29,7 @@ import java.io.*;
  */
 @Path("/v1/k8sservice")
 public class K8sRestService {
-    private static Logger log = LoggerFactory.getLogger(K8sRestService.class);
+    private static final Logger log = LoggerFactory.getLogger(K8sRestService.class);
 
     @Context
     private HttpServletRequest servletRequest;
@@ -49,15 +54,16 @@ public class K8sRestService {
 
     /**
      * 根据namespace,label查询启动的pod列表
-     * @param msgId 消息唯一id, 建议使用时间戳, 原值返回
-     * @param nameSpace nameSpace名称
+     *
+     * @param msgId          消息唯一id, 建议使用时间戳, 原值返回
+     * @param nameSpace      nameSpace名称
      * @param deploymentName deployment名称
      * @return ApiResponseBean
      */
     @GET
     @Path("/getPod")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public ApiResponseBean getPod(@QueryParam("msgId") String msgId,@QueryParam("nameSpace") String nameSpace,@QueryParam("deploymentName") String deploymentName) {
+    public ApiResponseBean getPod(@QueryParam("msgId") String msgId, @QueryParam("nameSpace") String nameSpace, @QueryParam("deploymentName") String deploymentName) {
         log.info("[getPod] Request Info: " + servletRequest.toString());
         log.info("[getPod] Request Addr: " + servletRequest.getRemoteAddr());
 

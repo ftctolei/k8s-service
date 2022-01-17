@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
  */
 public class K8sClient {
     private static final Logger log = LoggerFactory.getLogger(K8sClient.class);
-    private static ResourceBundle resource = ResourceBundle.getBundle("config");
+    private static final ResourceBundle resource = ResourceBundle.getBundle("config");
 
 
     static KubernetesClient connect(){

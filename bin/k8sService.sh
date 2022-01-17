@@ -25,6 +25,7 @@ HelpContent
 exit 0
 }
 
+
 logPrint(){
     log_type=${1:-"info"}
     log_content=${2:-"no log content."}
