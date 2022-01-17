@@ -27,7 +27,7 @@ public class k8sTest {
         KubernetesClient client = new DefaultKubernetesClient(config);
 
        /*
-       // 接口3 测试
+       // 接口2 测试
         PodList podList = client.pods().inNamespace("vss-meter-workspace").withLabel("app=mysql").list();
         ServiceList serviceList =  client.services().inNamespace("vss-meter-workspace").withLabel("app=mysql").list();
 
@@ -48,7 +48,7 @@ public class k8sTest {
         System.out.printf(k8sService.toString());
       */
 
-        //接口4 测试
+        //接口3 测试
 /*
         String dep_name_1 = "test_error" ;
         String dep_name_2 = "mariadb" ;
@@ -72,7 +72,6 @@ public class k8sTest {
 */
 
 
-        //接口1  测试
 
 
     }

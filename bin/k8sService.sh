@@ -2,7 +2,8 @@
 #  K8s-service 服务 启动|停止|状态 控制脚本
 #  本服务提供部分k8s接口管理服务.
 
-jar_file="K8sService.jar"
+jar_version="0.1"
+jar_file="k8s-service-${jar_version}.jar"
 config_properties="config.properties"
 log4j_properties="log4j.properties"
 JAVA_CMD="/usr/bin/java "
@@ -21,7 +22,7 @@ displayHelp(){
 
 startService(){
     pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
-    if [ "${pid}"  != "" ];then
+    if [[ "${pid}"  != "" ]];then
         echo "服务已在运行, 请先停止."
         statusService
         exit 0
@@ -36,7 +37,7 @@ stopService(){
     /bin/ps  -ef |grep  ${jar_file} |grep -v grep
     pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
     echo "PID: ${pid}"
-    if [ "${pid}" != "" ] ;then
+    if [[ "${pid}" != "" ]] ;then
         /bin/kill  -9  ${pid}
     fi
 }
@@ -46,7 +47,7 @@ statusService(){
     echo "/bin/ps  -ef |grep  ${jar_file} |grep -v grep"
     /bin/ps  -ef |grep  ${jar_file} |grep -v grep
     pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
-    if [ "${pid}"  != "" ];then
+    if [[ "${pid}"  != "" ]];then
         echo "[runing]服务正在运行, PID: ${pid}"
     else
         echo "[NOT runing]未发现服务进程."
@@ -55,13 +56,13 @@ statusService(){
 }
 
 
-if [ $# != 1 ] ; then
+if [[ $# != 1 ]] ; then
     displayHelp
     exit 0
 fi
 
 op="$1"
-case $op in
+case ${op} in
     start)
         echo "Start K8sService ..."
         startService
