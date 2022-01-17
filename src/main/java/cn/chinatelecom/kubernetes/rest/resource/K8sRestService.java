@@ -5,16 +5,23 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-
 import cn.chinatelecom.kubernetes.rest.RequestHandle;
 import cn.chinatelecom.kubernetes.rest.Tools;
 import cn.chinatelecom.kubernetes.rest.bean.ApiResponseBean;
 
 import com.alibaba.fastjson.JSONObject;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.*;
 
+
+/**
+ * TODO 1.各类异常捕获, 接口友好封装返回;
+ * TODO 2. k8s Client连接后是否需要destory;
+ * TODO 3. k8s的连接是否需要线程池
+ */
 @Path("/v1/k8sservice")
 public class K8sRestService {
     private static Logger log = LoggerFactory.getLogger(K8sRestService.class);
@@ -29,8 +36,9 @@ public class K8sRestService {
      */
     @GET
     @Path("/test")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public ApiResponseBean testReq() {
+        log.info("[test] Request Addr: " + servletRequest.getRemoteAddr());
         ApiResponseBean bean = new ApiResponseBean();
         bean.setCode(200);
         bean.setResponseTime(Tools.getNowTime());
@@ -48,14 +56,14 @@ public class K8sRestService {
      */
     @GET
     @Path("/getPod")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public ApiResponseBean getPod(@QueryParam("msgId") String msgId,@QueryParam("nameSpace") String nameSpace,@QueryParam("deploymentName") String deploymentName) {
         log.info("[getPod] Request Info: " + servletRequest.toString());
         log.info("[getPod] Request Addr: " + servletRequest.getRemoteAddr());
 
         ApiResponseBean bean = new ApiResponseBean();
         bean.setMsgId(msgId);
-        String message = "default";
+        String message;
 
         if (Tools.strEmpty(msgId) || Tools.strEmpty(nameSpace) || Tools.strEmpty(deploymentName)) {
             bean.setCode(201);
@@ -88,14 +96,14 @@ public class K8sRestService {
      */
     @POST
     @Path("/updatePodReplicas")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public ApiResponseBean updatePodReplicas(@FormParam("msgId") String msgId, @FormParam("nameSpace") String nameSpace, @FormParam("deploymentName") String deploymentName, @FormParam("replicas") Integer replicas) {
         log.info("[updatePodReplicas] Request Info: " + servletRequest.toString());
         log.info("[updatePodReplicas] Request Addr: " + servletRequest.getRemoteAddr());
 
         ApiResponseBean bean = new ApiResponseBean();
         bean.setMsgId(msgId);
-        String message = "default";
+        String message ;
 
         if (Tools.strEmpty(msgId) || Tools.strEmpty(nameSpace) || Tools.strEmpty(deploymentName) || replicas == null) {
             bean.setCode(201);
@@ -115,6 +123,41 @@ public class K8sRestService {
             log.error(ex.toString());
         }
         log.info("[updatePodReplicas] Response Info: {}", JSONObject.toJSONString(bean));
+        return  bean;
+
+    }
+
+
+    @POST
+    @Path("/updatePodViaYaml")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public ApiResponseBean updatePodViaYaml(@FormDataParam("msgId") String msgId, @FormDataParam("nameSpace") String nameSpace, @FormDataParam("op") String op, @FormDataParam("yamlFile") InputStream yamlFile) {
+        log.info("[updatePodViaYaml] Request Info: " + servletRequest.toString());
+        log.info("[updatePodViaYaml] Request Addr: " + servletRequest.getRemoteAddr());
+
+        ApiResponseBean bean = new ApiResponseBean();
+        bean.setMsgId(msgId);
+
+        if (Tools.strEmpty(msgId) || Tools.strEmpty(op) || Tools.strEmpty(nameSpace)  || yamlFile == null) {
+            bean.setCode(201);
+            bean.setResponseTime(Tools.getNowTime());
+            bean.setMessage("[ERROR] mandatory parameters missed. ");
+            return bean;
+        }
+
+        try {
+            yamlFile.available();
+        } catch (IOException e) {
+            bean.setCode(201);
+            bean.setResponseTime(Tools.getNowTime());
+            bean.setMessage("[ERROR] mandatory parameters yamlFile missed or file is null. ");
+            return bean;
+        }
+
+        bean = RequestHandle.updatePodViaYaml(bean, nameSpace, op, yamlFile);
+
+        log.info("[updatePodViaYaml] Response Info: {}", JSONObject.toJSONString(bean));
         return  bean;
 
     }

@@ -1,7 +1,11 @@
 package cn.chinatelecom.kubernetes.rest;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 
 public class Tools {
@@ -17,6 +21,7 @@ public class Tools {
         return sdf.format(date);
     }
 
+
     /**
      * 判断字符串是否为空
      * @param str 待判断的字符串
@@ -25,5 +30,18 @@ public class Tools {
     public static Boolean strEmpty(String str){
         return (str == null || str.isEmpty());
     }
+
+
+    /**
+     * 将Java InputStream转换为Java String
+     * @param inStream InputStream
+     * @return String
+     */
+    public static String inputStream2Str(InputStream inStream){
+        return new BufferedReader(new InputStreamReader(inStream))
+                .lines().collect(Collectors.joining(System.lineSeparator()));
+
+    }
+
 
 }

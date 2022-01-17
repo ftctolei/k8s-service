@@ -19,6 +19,7 @@
         <kubecli.version>5.11.2</kubecli.version>
         <jackson.version>2.13.1</jackson.version>
         <fastjson.version>1.2.79</fastjson.version>
+        <kubernetes-client.version>13.0.2</kubernetes-client.version>
     </properties>
 
     <dependencies>
@@ -77,6 +78,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-multipart</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
@@ -97,6 +104,13 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.kubernetes</groupId>
+            <artifactId>client-java</artifactId>
+            <version>${kubernetes-client.version}</version>
+        </dependency>
+
 
     </dependencies>
 

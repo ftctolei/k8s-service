@@ -10,6 +10,13 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ResourceBundle;
 
+
+
+/**
+ *  fabric8io/kubernetes-client 优点: 方便使用, 代码易读易维护, 社区活跃.
+ *  kubernetes-client/java 优点: kubernetes官方维护, 紧跟kubernetes版本.
+ *  此处k8s client使用fabric8io/kubernetes-client
+ */
 public class K8sClient {
     private static final Logger log = LoggerFactory.getLogger(K8sClient.class);
     private static ResourceBundle resource = ResourceBundle.getBundle("config");

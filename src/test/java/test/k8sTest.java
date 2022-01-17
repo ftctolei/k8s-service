@@ -49,6 +49,7 @@ public class k8sTest {
       */
 
         //接口4 测试
+/*
         String dep_name_1 = "test_error" ;
         String dep_name_2 = "mariadb" ;
         String ns = "vss-meter-workspace";
@@ -68,6 +69,12 @@ public class k8sTest {
 
         Deployment deploya = client.apps().deployments().inNamespace(ns).withName(dep_name_1).get();
         //System.out.println("修改后副本数: " + deploya.getSpec().getReplicas());
+*/
+
+
+        //接口1  测试
+
+
     }
 
 }
