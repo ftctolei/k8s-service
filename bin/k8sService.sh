@@ -45,16 +45,16 @@ logPrint(){
 startService(){
     pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
     if [[ "${pid}"  != "" ]];then
-        logPrint "服务已在运行, 请先停止."
+        logPrint info "服务已在运行, 请先停止."
         statusService
         exit 0
     fi
     if [[ -f  ${config_properties} ]];then
-        logPrint "加载配置文件: ${config_properties}"
+        logPrint info  "加载配置文件: ${config_properties}"
         ${JAR_CMD}  -uf   ${jar_file}   ${config_properties}
     fi
     if [[ -f  ${log4j_properties} ]];then
-         logPrint "加载配置文件: ${log4j_properties}"
+         logPrint info "加载配置文件: ${log4j_properties}"
         ${JAR_CMD}  -uf   ${jar_file}   ${log4j_properties}
     fi
     nohup ${JAVA_CMD}  ${JAVA_ARGS}  -jar  ${jar_file}  ${JAR_MAIN_CLASS} > /dev/null 2>&1 &
@@ -64,7 +64,7 @@ startService(){
 stopService(){
     /bin/ps  -ef |grep  ${jar_file} |grep -v grep
     pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
-    logPrint "PID: ${pid}"
+    logPrint info  "PID: ${pid}"
     if [[ "${pid}" != "" ]] ;then
         /bin/kill  -9  ${pid}
     fi
@@ -72,13 +72,13 @@ stopService(){
 
 
 statusService(){
-    logPrint "/bin/ps  -ef |grep  ${jar_file} |grep -v grep"
+    logPrint info  "/bin/ps  -ef |grep  ${jar_file} |grep -v grep"
     /bin/ps  -ef |grep  ${jar_file} |grep -v grep
     pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
     if [[ "${pid}"  != "" ]];then
-        logPrint "[runing]服务正在运行, PID: ${pid}"
+        logPrint info  "[runing]服务正在运行, PID: ${pid}"
     else
-        logPrint "[NOT runing]未发现服务进程."
+        logPrint info  "[NOT runing]未发现服务进程."
     fi
     echo  -e ""
 }
@@ -92,17 +92,17 @@ fi
 op="$1"
 case ${op} in
     start)
-        logPrint "Start K8sService ..."
+        logPrint info  "Start K8sService ..."
         startService
-	    logPrint "finished ."
+	    logPrint info  "finished ."
         ;;
     stop)
-        logPrint "Stop K8sService ..."
+        logPrint info  "Stop K8sService ..."
         stopService
-	    logPrint "finished ."
+	    logPrint info  "finished ."
         ;;
     status)
-        logPrint "K8sService status, (ps -ef)"
+        logPrint info  "K8sService status, (ps -ef)"
         statusService
         ;;
      *)
