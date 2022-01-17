@@ -34,6 +34,10 @@ public class JettyServer {
 
         servletHolder.setInitParameters(parameterMap);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.NO_SESSIONS);
+        context.addServlet(servletHolder, "/*");
+        ErrorPageErrorHandler errorHandler = new ErrorPageErrorHandler();
+        errorHandler.addErrorPage(404, "html/404.html");
+        context.setErrorHandler(errorHandler);
         server.setHandler(context);
 
         server.start();
