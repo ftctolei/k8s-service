@@ -13,13 +13,17 @@ JAR_MAIN_CLASS="cn.chinatelecom.kubernetes.StartService"
 
 
 displayHelp(){
-    echo -e  ""
-    echo -e  "Usage:  bash  $0  start|stop|status"
-    echo -e  "    K8s-service  服务 启动|停止|状态 ."
-    echo -e  "    本服务提供部分k8s接口管理服务."
-    echo -e  ""
-}
+cat << HelpContent
+  USAGE:
 
+      K8s-service 服务 启动|停止|状态 控制脚本.
+      执行: bash  $0.sh  start|stop|status
+
+      本服务提供部分k8s接口管理服务.
+
+HelpContent
+exit 0
+}
 
 logPrint(){
     log_type=${1:-"info"}
