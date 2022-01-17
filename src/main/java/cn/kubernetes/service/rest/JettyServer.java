@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes.rest;
+package cn.kubernetes.service.rest;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ErrorPageErrorHandler;

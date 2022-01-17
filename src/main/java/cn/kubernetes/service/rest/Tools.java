@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes.rest;
+package cn.kubernetes.service.rest;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

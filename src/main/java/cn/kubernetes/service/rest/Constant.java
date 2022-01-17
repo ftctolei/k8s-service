@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes.rest;
+package cn.kubernetes.service.rest;
 
 
 public class Constant {

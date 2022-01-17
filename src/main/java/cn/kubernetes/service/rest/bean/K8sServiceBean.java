@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes.rest.bean;
+package cn.kubernetes.service.rest.bean;
 
 import java.util.List;
 

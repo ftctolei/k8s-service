@@ -1,17 +1,9 @@
 package test;
 
-import cn.chinatelecom.kubernetes.rest.bean.K8sPodBean;
-import cn.chinatelecom.kubernetes.rest.bean.K8sServiceBean;
-import io.fabric8.kubernetes.api.model.*;
-import io.fabric8.kubernetes.api.model.apps.Deployment;
-import io.fabric8.kubernetes.api.model.apps.DeploymentBuilder;
 import io.fabric8.kubernetes.client.Config;
 import io.fabric8.kubernetes.client.ConfigBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class k8sTest {

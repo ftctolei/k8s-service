@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes.rest;
+package cn.kubernetes.service.rest;
 
 import io.fabric8.kubernetes.client.Config;
 import io.fabric8.kubernetes.client.ConfigBuilder;

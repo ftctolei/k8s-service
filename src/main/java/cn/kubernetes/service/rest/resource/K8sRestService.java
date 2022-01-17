@@ -1,8 +1,8 @@
-package cn.chinatelecom.kubernetes.rest.resource;
+package cn.kubernetes.service.rest.resource;
 
-import cn.chinatelecom.kubernetes.rest.RequestHandle;
-import cn.chinatelecom.kubernetes.rest.Tools;
-import cn.chinatelecom.kubernetes.rest.bean.ApiResponseBean;
+import cn.kubernetes.service.rest.RequestHandle;
+import cn.kubernetes.service.rest.Tools;
+import cn.kubernetes.service.rest.bean.ApiResponseBean;
 import com.alibaba.fastjson.JSONObject;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.slf4j.Logger;

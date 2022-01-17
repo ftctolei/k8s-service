@@ -1,4 +1,4 @@
-package cn.chinatelecom.kubernetes.rest;
+package cn.kubernetes.service.rest;
 
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;

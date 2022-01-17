@@ -1,9 +1,9 @@
-package cn.chinatelecom.kubernetes.rest;
+package cn.kubernetes.service.rest;
 
-import cn.chinatelecom.kubernetes.rest.bean.ApiResponseBean;
-import cn.chinatelecom.kubernetes.rest.bean.K8sDeploymentBean;
-import cn.chinatelecom.kubernetes.rest.bean.K8sPodBean;
-import cn.chinatelecom.kubernetes.rest.bean.K8sServiceBean;
+import cn.kubernetes.service.rest.bean.ApiResponseBean;
+import cn.kubernetes.service.rest.bean.K8sDeploymentBean;
+import cn.kubernetes.service.rest.bean.K8sPodBean;
+import cn.kubernetes.service.rest.bean.K8sServiceBean;
 import io.fabric8.kubernetes.api.model.PodList;
 import io.fabric8.kubernetes.api.model.ServiceList;
 import io.fabric8.kubernetes.api.model.apps.Deployment;
@@ -25,8 +25,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static cn.chinatelecom.kubernetes.rest.Constant.REST_OP_CREATE_DEPLOYMENT;
 
 
 public class RequestHandle {
@@ -103,7 +101,7 @@ public class RequestHandle {
         Reader reader = new InputStreamReader(new BufferedInputStream(yamlFile));
 
         switch (op) {
-            case REST_OP_CREATE_DEPLOYMENT :
+            case Constant.REST_OP_CREATE_DEPLOYMENT:
                 try {
                     yamlDep = (V1Deployment) Yaml.load(reader);
 
