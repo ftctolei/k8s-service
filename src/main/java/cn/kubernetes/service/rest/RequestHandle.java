@@ -20,12 +20,18 @@ import io.kubernetes.client.util.Yaml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static cn.kubernetes.service.rest.Constant.*;
+import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_DEPLOYMENT;
+import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_POD;
+import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_SERVICE;
 
 
 public class RequestHandle {
@@ -204,7 +210,7 @@ public class RequestHandle {
 
             default:
                 bean.setCode(201);
-                bean.setMessage("[ERROR] op NOT allowed. ");
+                bean.setMessage(String.format("[ERROR] op NOT allowed: %s ", op));
                 bean.setResponseTime(Tools.getNowTime());
                 return bean;
         }
