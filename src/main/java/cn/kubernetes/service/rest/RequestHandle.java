@@ -20,18 +20,12 @@ import io.kubernetes.client.util.Yaml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_DEPLOYMENT;
-import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_POD;
-import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_SERVICE;
+import static cn.kubernetes.service.rest.Constant.*;
 
 
 public class RequestHandle {
@@ -46,19 +40,23 @@ public class RequestHandle {
         List<K8sPodBean> k8sPodList = new ArrayList<>();
         K8sServiceBean k8sService = new K8sServiceBean();
 
-        // TODO 这段逻辑有问题(IndexOutOfBoundsException), 待确认, (nameSpace:vss-meter-workspace, deploymentName: nginx-deployment)
         // 同一个namespace下相同的label只存在一个service
-        k8sService.setClusterIP(serviceList.getItems().get(0).getSpec().getClusterIP());
-        k8sService.setClusterPort(serviceList.getItems().get(0).getSpec().getPorts().get(0).getPort());
-
-        podList.getItems().forEach(pod -> {
-            K8sPodBean k8sPod = new K8sPodBean();
-            k8sPod.setPodName(pod.getMetadata().getName());
-            k8sPod.setPodIP(pod.getStatus().getPodIP());
-            k8sPodList.add(k8sPod);
-        });
-        k8sService.setPodList(k8sPodList);
-
+        try {
+            k8sService.setClusterIP(serviceList.getItems().get(0).getSpec().getClusterIP());
+            k8sService.setClusterPort(serviceList.getItems().get(0).getSpec().getPorts().get(0).getPort());
+            podList.getItems().forEach(pod -> {
+                K8sPodBean k8sPod = new K8sPodBean();
+                k8sPod.setPodName(pod.getMetadata().getName());
+                k8sPod.setPodIP(pod.getStatus().getPodIP());
+                k8sPodList.add(k8sPod);
+            });
+            k8sService.setPodList(k8sPodList);
+        } catch (Exception e) {
+            bean.setCode(201);
+            bean.setMessage("Corresponding resource not found,please check your labelname!");
+            bean.setResponseTime(Tools.getNowTime());
+            return bean;
+        }
         bean.setCode(200);
         bean.setMessage(k8sService);
         bean.setResponseTime(Tools.getNowTime());
@@ -76,7 +74,7 @@ public class RequestHandle {
             replicasAfter = updatedDeploy.getSpec().getReplicas();
         } catch (Exception e) {
             bean.setCode(201);
-            bean.setMessage("Request ERROR, Check your request and parameters. ");
+            bean.setMessage(e.toString());
             bean.setResponseTime(Tools.getNowTime());
             return bean;
         }
@@ -223,7 +221,7 @@ public class RequestHandle {
             api.deleteNamespacedDeployment(deploymentName, nameSpace, null, null, null, null, null, null);
         } catch (Exception e) {
             bean.setCode(201);
-            bean.setMessage("Request ERROR, Check your request and parameters. ");
+            bean.setMessage(e.toString());
             bean.setResponseTime(Tools.getNowTime());
             return bean;
         }
@@ -246,7 +244,7 @@ public class RequestHandle {
             coreV1Api.deleteNamespacedPod(podName, nameSpace, null, null, null, null, null, null);
         } catch (Exception e) {
             bean.setCode(201);
-            bean.setMessage("Request ERROR, Check your request and parameters. ");
+            bean.setMessage(e.toString());
             bean.setResponseTime(Tools.getNowTime());
             return bean;
         }
