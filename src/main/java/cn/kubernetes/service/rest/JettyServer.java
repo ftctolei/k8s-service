@@ -22,8 +22,8 @@ public class JettyServer {
         Server server = new Server(port);
 
         ServletHolder servletHolder = new ServletHolder(org.glassfish.jersey.servlet.ServletContainer.class);
-        Map<String, String> parameterMap = new HashMap<String, String>(7);
-        parameterMap.put("jersey.config.server.provider.packages", "cn.chinatelecom.kubernetes.rest.resource");
+        Map<String, String> parameterMap = new HashMap<>(7);
+        parameterMap.put("jersey.config.server.provider.packages", "cn.kubernetes.service.rest.resource");
         parameterMap.put("jersey.config.beanValidation.enableOutputValidationErrorEntity.server", "true");
         parameterMap.put("jersey.api.json.POJOMappingFeature", "true");
         parameterMap.put("jersey.config.property.resourceConfigClass", "jersey.api.core.PackagesResourceConfig");
