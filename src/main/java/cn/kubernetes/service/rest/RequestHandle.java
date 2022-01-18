@@ -12,19 +12,20 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.AppsV1Api;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Deployment;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.util.Yaml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static cn.kubernetes.service.rest.Constant.*;
 
 
 public class RequestHandle {
@@ -93,14 +94,13 @@ public class RequestHandle {
      */
     public static ApiResponseBean updatePodViaYaml(ApiResponseBean bean, String nameSpace, String op, InputStream yamlFile) {
 
-        V1Deployment yamlDep ;
-        V1Deployment createResult;
-
         ApiClient k8sOClient = K8sClientOfficial.connectFromToken();
         Reader reader = new InputStreamReader(new BufferedInputStream(yamlFile));
 
         switch (op) {
-            case Constant.REST_OP_CREATE_DEPLOYMENT:
+            case REST_OP_CREATE_DEPLOYMENT:
+                V1Deployment yamlDep;
+                V1Deployment createDepResult;
                 try {
                     yamlDep = (V1Deployment) Yaml.load(reader);
 
@@ -114,7 +114,7 @@ public class RequestHandle {
 
                 AppsV1Api api = new AppsV1Api();
                 try {
-                    createResult = api.createNamespacedDeployment(nameSpace, yamlDep, null, null, null);
+                    createDepResult = api.createNamespacedDeployment(nameSpace, yamlDep, null, null, null);
                 } catch (ApiException e) {
                     log.error(e.toString());
                     bean.setCode(201);
@@ -125,22 +125,135 @@ public class RequestHandle {
 
                 K8sDeploymentBean deployment = new K8sDeploymentBean();
                 deployment.setNameSpace(nameSpace);
-                deployment.setDeploymentName(Optional.ofNullable(createResult.getMetadata().getName()).orElse(""));
-                deployment.setReplicas(Optional.ofNullable(createResult.getSpec().getReplicas()).orElse(0));
+                deployment.setDeploymentName(Optional.ofNullable(createDepResult.getMetadata().getName()).orElse(""));
+                deployment.setReplicas(Optional.ofNullable(createDepResult.getSpec().getReplicas()).orElse(0));
 
                 bean.setCode(200);
                 bean.setMessage(deployment);
                 bean.setResponseTime(Tools.getNowTime());
                 return bean;
 
+            case REST_OP_CREATE_POD:
+                V1Pod yamlPod;
+                V1Pod createPodResult;
+                try {
+                    yamlPod = (V1Pod) Yaml.load(reader);
+
+                } catch (IOException e) {
+                    log.error(e.toString());
+                    bean.setCode(201);
+                    bean.setMessage("[ERROR] get yaml failed: " + e.getMessage());
+                    bean.setResponseTime(Tools.getNowTime());
+                    return bean;
+                }
+
+                CoreV1Api coreV1Api = new CoreV1Api();
+                try {
+                    createPodResult = coreV1Api.createNamespacedPod(nameSpace, yamlPod, null, null, null);
+                } catch (ApiException e) {
+                    log.error(e.toString());
+                    bean.setCode(201);
+                    bean.setMessage("[ERROR] Create namespaced Pod failed: " + e.getMessage());
+                    bean.setResponseTime(Tools.getNowTime());
+                    return bean;
+                }
+
+                K8sPodBean pod = new K8sPodBean();
+                pod.setNameSpace(nameSpace);
+                pod.setPodName(Optional.ofNullable(createPodResult.getMetadata().getName()).orElse(""));
+
+                bean.setCode(200);
+                bean.setMessage(pod);
+                bean.setResponseTime(Tools.getNowTime());
+                return bean;
+
+            //创建service
+            case REST_OP_CREATE_SERVICE:
+                V1Service yamlService;
+                V1Service creatServiceResult;
+                try {
+                    yamlService = (V1Service) Yaml.load(reader);
+
+                } catch (IOException e) {
+                    log.error(e.toString());
+                    bean.setCode(201);
+                    bean.setMessage("[ERROR] get yaml failed: " + e.getMessage());
+                    bean.setResponseTime(Tools.getNowTime());
+                    return bean;
+                }
+
+                CoreV1Api apiInstance = new CoreV1Api();
+                try {
+                    creatServiceResult = apiInstance.createNamespacedService(nameSpace, yamlService, null, null, null);
+                } catch (ApiException e) {
+                    log.error(e.toString());
+                    bean.setCode(201);
+                    bean.setMessage("[ERROR] Create namespaced Service failed: " + e.getMessage());
+                    bean.setResponseTime(Tools.getNowTime());
+                    return bean;
+                }
+
+                K8sServiceBean service = new K8sServiceBean();
+                service.setNameSpace(nameSpace);
+                service.setServiceName(Optional.ofNullable(creatServiceResult.getMetadata().getName()).orElse(""));
+
+                bean.setCode(200);
+                bean.setMessage(service);
+                bean.setResponseTime(Tools.getNowTime());
+                return bean;
+
             default:
                 bean.setCode(201);
-                bean.setMessage(String.format("[ERROR] op NOT allowed: %s", op));
+                bean.setMessage("[ERROR] op NOT allowed. ");
                 bean.setResponseTime(Tools.getNowTime());
                 return bean;
         }
-
-
     }
+
+    public static ApiResponseBean deleteDeployment(ApiResponseBean bean, String nameSpace, String deploymentName) {
+        ApiClient k8sOClient = K8sClientOfficial.connectFromToken();
+        AppsV1Api api = new AppsV1Api();
+        try {
+            api.deleteNamespacedDeployment(deploymentName, nameSpace, null, null, null, null, null, null);
+        } catch (Exception e) {
+            bean.setCode(201);
+            bean.setMessage("Request ERROR, Check your request and parameters. ");
+            bean.setResponseTime(Tools.getNowTime());
+            return bean;
+        }
+
+        K8sDeploymentBean deployment = new K8sDeploymentBean();
+        deployment.setNameSpace(nameSpace);
+        deployment.setDeploymentName(deploymentName);
+
+        bean.setCode(200);
+        bean.setMessage(deployment);
+        bean.setResponseTime(Tools.getNowTime());
+        return bean;
+    }
+
+    public static ApiResponseBean deletePod(ApiResponseBean bean, String nameSpace, String podName) {
+        ApiClient k8sOClient = K8sClientOfficial.connectFromToken();
+        CoreV1Api coreV1Api = new CoreV1Api();
+
+        try {
+            coreV1Api.deleteNamespacedPod(podName, nameSpace, null, null, null, null, null, null);
+        } catch (Exception e) {
+            bean.setCode(201);
+            bean.setMessage("Request ERROR, Check your request and parameters. ");
+            bean.setResponseTime(Tools.getNowTime());
+            return bean;
+        }
+
+        K8sPodBean pod = new K8sPodBean();
+        pod.setNameSpace(nameSpace);
+        pod.setPodName(podName);
+
+        bean.setCode(200);
+        bean.setMessage(pod);
+        bean.setResponseTime(Tools.getNowTime());
+        return bean;
+    }
+
 
 }

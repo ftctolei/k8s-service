@@ -6,6 +6,24 @@ public class K8sServiceBean {
     private String clusterIP;
     private int clusterPort;
     private List<K8sPodBean> podList;
+    private String serviceName;
+    private String nameSpace;
+
+    public String getNameSpace() {
+        return nameSpace;
+    }
+
+    public void setNameSpace(String nameSpace) {
+        this.nameSpace = nameSpace;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
 
     public String getClusterIP() {
         return clusterIP;
