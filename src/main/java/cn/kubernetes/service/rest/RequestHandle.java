@@ -93,11 +93,10 @@ public class RequestHandle {
      */
     public static ApiResponseBean updatePodViaYaml(ApiResponseBean bean, String nameSpace, String op, InputStream yamlFile) {
 
-        ApiClient k8sOClient = K8sClientOfficial.connectFromToken();
-
         V1Deployment yamlDep ;
         V1Deployment createResult;
 
+        ApiClient k8sOClient = K8sClientOfficial.connectFromToken();
         Reader reader = new InputStreamReader(new BufferedInputStream(yamlFile));
 
         switch (op) {
@@ -136,7 +135,7 @@ public class RequestHandle {
 
             default:
                 bean.setCode(201);
-                bean.setMessage("[ERROR] op NOT allowed. ");
+                bean.setMessage(String.format("[ERROR] op NOT allowed: %s", op));
                 bean.setResponseTime(Tools.getNowTime());
                 return bean;
         }
