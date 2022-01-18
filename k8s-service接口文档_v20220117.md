@@ -122,7 +122,7 @@ msgId:1641876953
 
 
 
-##### 3. 根据namespace,上传的yaml文件创建Deployment #####
+##### 3. 根据namespace,上传的yaml文件创建Deployment,Pod,Service #####
 
 请求地址：
 
@@ -132,12 +132,12 @@ msgId:1641876953
 
 请求参数：
 
-| 参数名    | 类型   | 必选 | 备注                                                |
-| --------- | ------ | ---- | --------------------------------------------------- |
-| msgId     | String | Y    | 消息唯一id, 建议使用时间戳, 原值返回                |
-| nameSpace | String | Y    | nameSpace名称                                       |
-| op        | String | Y    | 接口操作, 定义如下:  1. createDep : 创建Deployment; |
-| yamlFile  | File   | Y    | FORM_DATA上传的文件                                 |
+| 参数名    | 类型   | 必选 | 备注                                                         |
+| --------- | ------ | ---- | ------------------------------------------------------------ |
+| msgId     | String | Y    | 消息唯一id, 建议使用时间戳, 原值返回                         |
+| nameSpace | String | Y    | nameSpace名称                                                |
+| op        | String | Y    | 接口操作, 定义如下:  1. createDeployment: 创建Deployment;2.createPod:创建Pod；3.createService:创建Service |
+| yamlFile  | File   | Y    | FORM_DATA上传的文件                                          |
 
 请求示例:
 
@@ -146,7 +146,7 @@ msgId:1641876953
 ```shell
 # form-data
 nameSpace:vss-meter-workspace
-op:createDep
+op:createDeployment
 msgId:1641872394
 yamlFile: [上传以下create_pod.yaml文件]
 ```
@@ -206,7 +206,58 @@ spec:
 }
 ```
 
+##### 4.根据namespace,deploymentname,删除对应的deployment
 
+请求地址：
+
+`POST  /v1/k8sservice/deleteDeployment`
+
+
+
+请求参数：
+
+| 参数名         | 类型   | 必选 | 备注                                 |
+| -------------- | ------ | ---- | ------------------------------------ |
+| msgId          | String | Y    | 消息唯一id, 建议使用时间戳, 原值返回 |
+| nameSpace      | String | Y    | nameSpace名称                        |
+| deploymentName | String | Y    | deployment名称                       |
+
+请求示例：
+
+`/v1/k8sservice/deleteDeployment`
+
+```
+# x-www-form-urlencoded
+nameSpace:vss-meter-workspace
+deploymentName:mariadb
+msgId:1641876953
+```
+
+返回示例:
+
+```
+{
+    "code": 200,
+    "message": {
+        "deploymentName": "mariadb",
+        "nameSpace": "vss-meter-workspace",
+        "replicas": 0
+    },
+    "msgId": "1641872394",
+    "responseTime": "2022-01-18 18:59:08"
+}
+```
+
+重复创建返回示例:
+
+```
+{
+    "code": 201,
+    "message": "Request ERROR, Check your request and parameters. ",
+    "msgId": "1002",
+    "responseTime": "2022-01-18 18:59:41"
+}
+```
 
 
 
