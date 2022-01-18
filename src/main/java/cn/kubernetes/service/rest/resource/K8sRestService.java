@@ -9,13 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
@@ -167,6 +161,49 @@ public class K8sRestService {
         return  bean;
 
     }
+
+    /**
+     * 根据namespace,deployment Name删除指定的deployment
+     *
+     * @param msgId          消息唯一id, 建议使用时间戳, 原值返回
+     * @param nameSpace      nameSpace名称
+     * @param deploymentName deployment名称
+     * @return ApiResponseBean
+     */
+    @POST
+    @Path("/deleteDeployment")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    public ApiResponseBean deleteDeployment(@FormParam("msgId") String msgId, @FormParam("nameSpace") String nameSpace, @FormParam("deploymentName") String deploymentName, @FormParam("replicas") Integer replicas) {
+        log.info("[deleteDeployment] Request Info: " + servletRequest.toString());
+        log.info("[deleteDeployment] Request Addr: " + servletRequest.getRemoteAddr());
+
+        ApiResponseBean bean = new ApiResponseBean();
+        bean.setMsgId(msgId);
+
+
+        if (Tools.strEmpty(msgId) || Tools.strEmpty(nameSpace) || Tools.strEmpty(deploymentName)) {
+            bean.setCode(201);
+            bean.setResponseTime(Tools.getNowTime());
+            bean.setMessage("[ERROR] mandatory parameters missed. ");
+            return bean;
+        }
+
+        String message;
+        try {
+            bean = RequestHandle.deleteDeployment(bean, nameSpace, deploymentName);
+        } catch (Exception ex) {
+            bean.setCode(500);
+            bean.setResponseTime(Tools.getNowTime());
+            message = "[ERROR] K8sRestService error, check your request and parameters first, or contact the administrator. ";
+            bean.setMessage(message);
+            log.error(message);
+            log.error(ex.toString());
+        }
+        log.info("[deleteDeployment] Response Info: {}", JSONObject.toJSONString(bean));
+        return bean;
+
+    }
+
 
 
 }
