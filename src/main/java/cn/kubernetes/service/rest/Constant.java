@@ -8,6 +8,5 @@ public class Constant {
     public static final String REST_OP_CREATE_DEPLOYMENT = "createDeployment";
     public static final String REST_OP_CREATE_POD = "createPod";
     public static final String REST_OP_CREATE_SERVICE = "createService";
-    public static final String REST_OP_CREATE_LJJ = "createLjj";
 
 }

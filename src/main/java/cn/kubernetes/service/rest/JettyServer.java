@@ -22,7 +22,6 @@ public class JettyServer {
     private static final Logger log = LoggerFactory.getLogger(JettyServer.class);
 
     public void start(int port) throws Exception {
-        //Server server = new Server(port);
         Server server = new Server();
 
         ServletHolder servletHolder = new ServletHolder(org.glassfish.jersey.servlet.ServletContainer.class);
