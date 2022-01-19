@@ -49,8 +49,12 @@ public class JettyServer {
         server.setConnectors(new Connector[]{httpConnector});
         httpConnector.setPort(port);
 
-        server.start();
-        server.join();
+        try {
+            server.start();
+            server.join();
+        } finally {
+            server.destroy();
+        }
     }
 
 }
