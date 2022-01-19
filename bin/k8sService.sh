@@ -1,4 +1,4 @@
-#!/bin/bash                                                                                                                      op@10.142.97.1
+#!/bin/sh
 #  K8s-service 服务 启动|停止|状态 控制脚本
 #  本服务提供部分k8s接口管理服务.
 
@@ -8,8 +8,8 @@ config_properties="config.properties"
 log4j_properties="log4j.properties"
 JAVA_CMD="/usr/bin/java "
 JAR_CMD="/usr/bin/jar "
-JAVA_ARGS="-Xmx10g "
-JAR_MAIN_CLASS="cn.chinatelecom.kubernetes.StartService"
+JAVA_ARGS="-Xmx4g "
+JAR_MAIN_CLASS="cn.kubernetes.service.StartService"
 
 
 displayHelp(){
@@ -17,7 +17,7 @@ cat << HelpContent
   USAGE:
 
       K8s-service 服务 启动|停止|状态 控制脚本.
-      执行: bash  $0.sh  start|stop|status
+      执行: sh  $0  start|stop|status
 
       本服务提供部分k8s接口管理服务.
 
@@ -31,19 +31,19 @@ logPrint(){
     log_content=${2:-"no log content."}
     case ${log_type} in
     error)
-        echo -e "`date +'%F %H:%M:%S'`[ERROR] ${log_content}";;
+        echo -e "$(date +'%F %H:%M:%S')[ERROR] ${log_content}";;
     info)
-        echo -e "`date +'%F %H:%M:%S'`[INFO] ${log_content}";;
+        echo -e "$(date +'%F %H:%M:%S')[INFO] ${log_content}";;
     warn)
-        echo -e "`date +'%F %H:%M:%S'`[WARN] ${log_content}" ;;
+        echo -e "$(date +'%F %H:%M:%S')[WARN] ${log_content}" ;;
     debug)
-        echo -e "`date +'%F %H:%M:%S'`[DEBUG] ${log_content}" ;;
+        echo -e "$(date +'%F %H:%M:%S')[DEBUG] ${log_content}" ;;
     esac
 }
 
 
 startService(){
-    pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
+    pid=$(/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}')
     if [[ "${pid}"  != "" ]];then
         logPrint info "服务已在运行, 请先停止."
         statusService
@@ -63,7 +63,7 @@ startService(){
 
 stopService(){
     /bin/ps  -ef |grep  ${jar_file} |grep -v grep
-    pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
+    pid=$(/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}')
     logPrint info  "PID: ${pid}"
     if [[ "${pid}" != "" ]] ;then
         /bin/kill  -9  ${pid}
@@ -74,11 +74,11 @@ stopService(){
 statusService(){
     logPrint info  "/bin/ps  -ef |grep  ${jar_file} |grep -v grep"
     /bin/ps  -ef |grep  ${jar_file} |grep -v grep
-    pid=`/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}'`
+    pid=$(/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}')
     if [[ "${pid}"  != "" ]];then
-        logPrint info  "[runing]服务正在运行, PID: ${pid}"
+        logPrint info  "[RUNNING]服务正在运行, PID: ${pid}"
     else
-        logPrint info  "[NOT runing]未发现服务进程."
+        logPrint info  "[NOT RUNNING]未发现服务进程."
     fi
     echo  -e ""
 }
