@@ -20,18 +20,12 @@ import io.kubernetes.client.util.Yaml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_DEPLOYMENT;
-import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_POD;
-import static cn.kubernetes.service.rest.Constant.REST_OP_CREATE_SERVICE;
+import static cn.kubernetes.service.rest.Constant.*;
 
 
 public class RequestHandle {
@@ -206,6 +200,8 @@ public class RequestHandle {
                 K8sServiceBean service = new K8sServiceBean();
                 service.setNameSpace(nameSpace);
                 service.setServiceName(Optional.ofNullable(creatServiceResult.getMetadata().getName()).orElse(""));
+                service.setClusterPort(Optional.ofNullable(creatServiceResult.getSpec().getPorts().get(0).getPort()).orElse(0));
+
 
                 bean.setCode(200);
                 bean.setMessage(service);
