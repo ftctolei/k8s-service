@@ -3,13 +3,12 @@
 #  本服务提供部分k8s接口管理服务.
 
 jar_version="0.1"
-jar_file="k8s-service-${jar_version}.jar"
+jar_file="libs/k8s-service-${jar_version}.jar"
 config_properties="config.properties"
 log4j_properties="log4j.properties"
 JAVA_CMD="/usr/bin/java "
 JAR_CMD="/usr/bin/jar "
 JAVA_ARGS="-Xmx4g "
-JAR_MAIN_CLASS="cn.kubernetes.service.StartService"
 
 
 displayHelp(){
@@ -57,7 +56,7 @@ startService(){
          logPrint info "加载配置文件: ${log4j_properties}"
         ${JAR_CMD}  -uf   ${jar_file}   ${log4j_properties}
     fi
-    nohup ${JAVA_CMD}  ${JAVA_ARGS}  -jar  ${jar_file}  ${JAR_MAIN_CLASS} > /dev/null 2>&1 &
+    nohup ${JAVA_CMD}  ${JAVA_ARGS}  -jar  ${jar_file}  > /dev/null 2>&1 &
 }
 
 
@@ -66,7 +65,7 @@ stopService(){
     pid=$(/bin/ps  -ef |grep  ${jar_file} |grep -v grep  |awk -F ' ' '{print $2}')
     logPrint info  "PID: ${pid}"
     if [[ "${pid}" != "" ]] ;then
-        /bin/kill  -9  ${pid}
+        /bin/kill  -9  "${pid}"
     fi
 }
 
