@@ -303,7 +303,7 @@ spec:
 {
     "code": 200,
     "message": {
-        "clusterPort": 3306,
+        "clusterPort": 8080,
         "nameSpace": "vss-meter-workspace",
         "serviceName": "mariadb"
     },
