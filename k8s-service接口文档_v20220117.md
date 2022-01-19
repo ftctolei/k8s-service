@@ -139,7 +139,7 @@ msgId:1641876953
 | op        | String | Y    | 接口操作, 定义如下:  1. createDeployment: 创建Deployment;2.createPod:创建Pod；3.createService:创建Service |
 | yamlFile  | File   | Y    | FORM_DATA上传的文件                                          |
 
-请求示例:
+请求示例1 创建deployment:
 
 `POST  /v1/k8sservice/updatePodViaYaml`
 
@@ -151,7 +151,7 @@ msgId:1641872394
 yamlFile: [上传以下create_pod.yaml文件]
 ```
 
-参数`create_pod.yaml` 文件内容参考如下:
+参数`create_deployment.yaml` 文件内容参考如下:
 
 ```yaml
 apiVersion: apps/v1
@@ -205,6 +205,125 @@ spec:
     "responseTime": "2022-01-17 11:27:50"
 }
 ```
+
+
+
+请求示例2 创建pod:
+
+`POST  /v1/k8sservice/updatePodViaYaml`
+
+```
+# form-data
+nameSpace:vss-meter-workspace
+op:createPod
+msgId:1641872394
+yamlFile: [上传以下create_pod.yaml文件]
+```
+
+参数`create_pod.yaml` 文件内容参考如下:
+
+```yaml
+apiVersion: v1 # API版本号，注意：具有多个，不同的对象可能会使用不同API
+kind: Pod  # 对象类型，pod
+metadata:  # 元数据
+  name: mysql # POD名称
+spec: # specification of the resource content(资源内容的规范)
+  containers: # 容器列表
+    - name: mysql # 容器名称
+      image: mysql # 容器镜像
+```
+
+
+
+返回示例:
+
+```
+{
+    "code": 200,
+    "message": {
+        "nameSpace": "vss-meter-workspace",
+        "podName": "mysql"
+    },
+    "msgId": "1002",
+    "responseTime": "2022-01-19 09:17:53"
+}
+```
+
+重复创建返回示例:
+
+```
+{
+    "code": 201,
+    "message": "[ERROR] Create namespaced Pod failed: Conflict",
+    "msgId": "1002",
+    "responseTime": "2022-01-19 09:18:16"
+}
+```
+
+
+
+
+
+请求示例3 创建service
+
+`POST  /v1/k8sservice/updatePodViaYaml`
+
+```
+# form-data
+nameSpace:vss-meter-workspace
+op:createService
+msgId:1641872394
+yamlFile: [上传以下create_service.yaml文件]
+```
+
+参数`create_service.yaml` 文件内容参考如下:
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb
+  labels:
+    app: mariadb
+    service: mariadb
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      nodePort: 30026
+  selector:
+    app: mariadb
+  type: NodePort
+```
+
+返回示例:
+
+```
+{
+    "code": 200,
+    "message": {
+        "clusterPort": 3306,
+        "nameSpace": "vss-meter-workspace",
+        "serviceName": "mariadb"
+    },
+    "msgId": "1002",
+    "responseTime": "2022-01-19 09:22:07"
+}
+```
+
+重复创建返回示例:
+
+```
+{
+    "code": 201,
+    "message": "[ERROR] Create namespaced Service failed: Unprocessable Entity",
+    "msgId": "1002",
+    "responseTime": "2022-01-19 09:23:03"
+}
+```
+
+
 
 ##### 4.根据namespace,deploymentname,删除对应的deployment
 
